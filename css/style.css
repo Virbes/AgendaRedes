@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&display=swap');
+:root{
+    --rosado: #c21858;
+    --amarillo: #ffc107; 
+    --rosadoOscuro: rgb(156,10,69);  
+    --fuentePoppins: 'Poppins', sans-serif;
+    --fuenteKrub: 'Krub', sans-serif;
+}
+html {
+    box-sizing: border-box;
+}
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+ body{
+    background-color: var(--rosado);
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuenteKrub);
+}
+.contenedor{
+    width: 80%;
+    margin: 0 auto;
+}
+.bg-amarillo{
+    background-color: var(--amarillo);
+}
+.sombra{
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,.5);
+    border-radius: .3rem;
+}
+
+.formulario{
+    padding: 3rem;
+    margin-top: 2rem;
+}
+.formulario legend{
+    font-family: var(--fuentePoppins);
+    font-size: 2rem;
+    text-align: center;
+    display: unset;
+}
+h1, h2{
+    font-family: var(--fuentePoppins);
+    text-align: center;
+    margin: 0;
+}
+h1{
+    padding: 20px;
+    color: #fff;
+}
+h2{
+    font-size: 2rem;
+    color: var(--rosado);
+}
+.barra{
+    background-color: var(--rosadoOscuro);
+}
+
+/* FORMULARIO */
+.campos{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+}
+.campo{
+    padding: 1rem 0 1rem 1rem;
+    width: 100%;
+    font-size: 1.3rem;
+}
+.campo input{
+    border: none;
+    border-radius: .2rem;
+    clear: both;
+    display: block;
+    padding: .8rem;
+    width: 100%;
+    margin-top: .5rem;
+    height: 3.2rem;
+}
+.boton{
+    display: flex;
+    justify-content: flex-end;
+}
+.boton input{
+    color: #fff;
+    background-color: var(--rosado);
+    padding: .8rem;
+    border: none;
+    width: 10rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-radius: .2rem;
+    transition: background-color .3s ease-in-out;
+    margin-top: 2rem;
+}
+.boton input:hover{
+    cursor: pointer;
+        background-color: var(--rosadoOscuro);
+}
+
+/* CONTACTOS */
+.bg-blanco{
+    background-color: #fff;
+}
+.contactos{
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.contenedor-contactos{
+    max-width: 800px;
+    margin: 4rem auto 0 auto;
+}
+.buscar{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    margin: 2rem 0;
+}
+.total-contacto{
+    font-family: var(--fuentePoppins);
+    color: var(--rosado);
+    font-size: 2rem;
+    text-align: center;
+
+}
+.total-contacto span{
+    font-size: 3rem;
+    font-weight: 700;
+}
+table{
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+table thead{
+    background-color: var(--rosado);
+    color: #fff;
+    text-transform: uppercase;
+}
+table thead th{
+    padding: 1rem;
+}
+table tbody td{
+    padding: .5rem 0;
+}
+table tbody td:nth-child(4){
+    text-align: center;
+}
+.boton{
+    background-color: transparent !important;
+    border: none; 
+}
+.btn{
+    font-size: 2.5rem;
+    display: inline;
+    margin-left: .5rem;
+    text-decoration: none;
+}
+.btn-borrar{
+    color: var(--rosado);
+}
+.btn-borrar:hover{
+    cursor: pointer;
+}
+.btn-editar {
+    color: var(--amarillo);
+}
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+/* EDITAR */
+.btn-cancelar{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+.btn-volver{
+    background-color: rgb(236, 77, 77);
+    border-radius: .2rem;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .5rem;
+    width: 8rem;
+}
+
+/* RESPOSIV */
+@media (max-width: 426px){
+    .campos{
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .formulario{
+        padding: 2rem;
+        margin-top: 1rem;
+    }
+    .campo{
+        padding: 0;
+        width: 100%;
+        margin-bottom: .5rem;
+        font-size: 1rem;
+    }
+    .boton input{
+        width: 100%;
+    }
+    .contenedor-tabla{
+    overflow: scroll;
+    }
+
+    /* contactos */
+    .contenedor-contactos{
+        margin: 2rem auto 0 auto;
+    }
+    .contactos{
+        padding: .1rem 2rem;
+        margin-top: 1rem;
+    }
+    .buscar{
+        margin: 1rem 0;
+    }
+    .total-contacto{
+        font-size: 1rem;
+        margin: 1rem 0 0;
+    }
+    .total-contacto span{
+        font-size: 2rem;
+    }
+    .btn-volver{
+        width: 100%;
+    }
+}
+
+/* NOTIFICACIONES */
+.notificacion{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem 2rem;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+.visible{
+    opacity: 1;
+}
+.correcto{
+    background-color: rgb(179, 241, 117);
+    color: green;
+}
+.error{
+    background-color: rgb(238, 148, 166);
+    color: rgb(163, 0, 33);
+}
