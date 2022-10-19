@@ -58,6 +58,19 @@ h2{
     background-color: var(--rosadoOscuro);
 }
 
+.login {
+    display: flex;
+    justify-content: end;
+}
+.btn-login {
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 0.4rem;
+}
+
 /* FORMULARIO */
 .campos{
     display: flex;
@@ -133,6 +146,7 @@ h2{
 table{
     width: 100%;
     margin-top: 2rem;
+    margin-bottom: 1rem;
     border-collapse: collapse;
 }
 table thead{
@@ -189,8 +203,21 @@ a:-webkit-any-link {
     width: 8rem;
 }
 
+/* Class for disable elements */
+.disable-element {
+    pointer-events:none;
+    color: #ccc;
+}
+/* End Class for disable elements */
+
 /* RESPOSIV */
 @media (max-width: 426px){
+    h1 {
+        font-size: 20px;
+    }
+    label {
+        display: none;
+    }
     .campos{
         flex-direction: column;
         margin-top: 1rem;
@@ -198,6 +225,9 @@ a:-webkit-any-link {
     .formulario{
         padding: 2rem;
         margin-top: 1rem;
+    }
+    .formulario legend{
+        font-size: 1.5rem;
     }
     .campo{
         padding: 0;
@@ -208,15 +238,19 @@ a:-webkit-any-link {
     .boton input{
         width: 100%;
     }
+    .contenedor {
+        width: 90%;
+    }
     .contenedor-tabla{
-    overflow: scroll;
+        overflow: scroll;
     }
 
     /* contactos */
     .contenedor-contactos{
         margin: 2rem auto 0 auto;
     }
-    .contactos{
+    .contactos {
+        width: 90%;
         padding: .1rem 2rem;
         margin-top: 1rem;
     }
@@ -232,6 +266,19 @@ a:-webkit-any-link {
     }
     .btn-volver{
         width: 100%;
+    }
+    /* Ocultar la columna de correo en modo responsivo */
+    .correo {
+        display: none;
+    }
+    table thead th{
+        font-size: 14px;
+    }
+    table tbody td{
+        font-size: 15px;
+    }
+    .btn {
+        font-size: 2rem;
     }
 }
 
