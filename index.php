@@ -8,10 +8,19 @@ include 'inc/layout/head.php';
 </header>
 
 <div class="contenedor login">
-     <a class="btn-login" href="login.php">
-          <span>Log-in</span>
-          <i class="fas fa-sign-in-alt"></i>
-     </a>
+     <?php if (isset($_SESSION['username']) && $_SESSION['username'] == 'admin') { ?>
+          <a class="btn-login" href="salir.php" id="btnLogin">
+               <span>Cerrar sesión</span>
+               <i class="fas fa-sign-out-alt"></i>
+          </a>
+     <?php } else { ?>
+          <a class="btn-login" href="login.php" id="btnLogin">
+               <span>Log-in</span>
+               <i class="fas fa-sign-in-alt"></i>
+          </a>
+
+          <!-- session_destroy(); -->
+     <?php }?>
 </div>
 
 <section class="bg-amarillo contenedor sombra">
@@ -57,12 +66,25 @@ include 'inc/layout/head.php';
                                         <td class="correo"><?php echo $contacto['correo']; ?></td>
                                         <td><?php echo $contacto['telefono']; ?></td>
                                         <td>
-                                             <a class="btn-editar btn disable-element" href="editar.php?id=<?php echo $contacto['id']; ?>">
-                                                  <i class="fas fa-pen-square"></i>
-                                             </a>
-                                             <button data-id="<?php echo $contacto['id']; ?>" type="button" class="btn-borrar btn boton disable-element">
-                                                  <i class="fas fa-trash-alt"></i>
-                                             </button>
+                                             <?php if (isset($_SESSION['username']) && $_SESSION['username'] == 'admin') { ?>
+
+                                                  <a class="btn-editar btn" href="editar.php?id=<?php echo $contacto['id']; ?>">
+                                                       <i class="fas fa-pen-square"></i>
+                                                  </a>
+                                                  <button class="btn-borrar btn boton" data-id="<?php echo $contacto['id']; ?>" type="button">
+                                                       <i class="fas fa-trash-alt"></i>
+                                                  </button>
+
+                                             <?php } else { ?>
+
+                                                  <a class="btn-editar btn disable-element" href="editar.php?id=<?php echo $contacto['id']; ?>">
+                                                       <i class="fas fa-pen-square"></i>
+                                                  </a>
+                                                  <button class="btn-borrar btn boton disable-element" data-id="<?php echo $contacto['id']; ?>" type="button">
+                                                       <i class="fas fa-trash-alt"></i>
+                                                  </button>
+
+                                             <?php } ?>
                                         </td>
                                    </tr>
                          <?php }

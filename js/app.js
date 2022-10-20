@@ -76,9 +76,11 @@ function insertarBD(datos) {
 
                nuevoContacto.innerHTML = `
                     <td>${respuesta.datos.nombre}</td>
-                    <td>${respuesta.datos.correo}</td>
+                    <td class="correo">${respuesta.datos.correo}</td>
                     <td>${respuesta.datos.telefono}</td>
                `;
+
+               const session = document.querySelector('#btnLogin span').textContent;
 
                // crear contenedor para los botones
                const contenedorAcciones = document.createElement('td');
@@ -91,7 +93,11 @@ function insertarBD(datos) {
                const btnEditar = document.createElement('a');
                btnEditar.appendChild(iconoEditar);
                btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
-               btnEditar.classList.add('btn', 'btn-editar');
+               if (session === 'Log-in') {
+                    btnEditar.classList.add('btn', 'btn-editar', 'disable-element');
+               } else {
+                    btnEditar.classList.add('btn', 'btn-editar');
+               }
 
                // agregarlo al padre
                contenedorAcciones.appendChild(btnEditar);
@@ -104,7 +110,11 @@ function insertarBD(datos) {
                const btnEliminar = document.createElement('button');
                btnEliminar.appendChild(iconoEliminar);
                btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
-               btnEliminar.classList.add('btn', 'btn-borrar');
+               if (session === 'Log-in') {
+                    btnEliminar.classList.add('btn', 'btn-borrar', 'disable-element');
+               } else {
+                    btnEliminar.classList.add('btn', 'btn-borrar');
+               }
 
                // agregarlo al padre
                contenedorAcciones.appendChild(btnEliminar);
@@ -206,7 +216,11 @@ function eliminarContacto(e) {
      }
 }
 
-// Notifación en pantalla
+/**
+ * Notifación en pantalla
+ * @param {*} mensaje : Mensaje impreso en pagina
+ * @param {*} clase : [error, correcto]
+ */
 function mostrarNotificacion(mensaje, clase) {
      const notificacion = document.createElement('div');
      notificacion.classList.add(clase, 'notificacion', 'sombra');
